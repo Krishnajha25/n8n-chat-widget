@@ -1,5 +1,9 @@
 import Chat from './Chat';
 
-export default function ChatWidget(props: {}) {
-  return <Chat {...props} />;
+interface ChatWidgetProps {
+  url: string;
+}
+
+export default function ChatWidget({ url }: ChatWidgetProps) {
+  return <Chat url={url} />;
 }

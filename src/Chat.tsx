@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ChatButton from "./ChatButton";
 import ChatWindow from "./ChatWindow";
 
-const Chat = () => {
+interface ChatProps {
+  url: string;
+}
+
+const Chat = ({ url }: ChatProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
-      <ChatWindow isOpen={isOpen} />
+      <ChatWindow isOpen={isOpen} url={url} />
       <ChatButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
     </>
   );

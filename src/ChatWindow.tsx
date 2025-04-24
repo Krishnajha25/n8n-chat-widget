@@ -5,6 +5,7 @@ import { SendIcon } from "lucide-react";
 
 interface ChatWindowProps {
   isOpen: boolean;
+  url: string;
 }
 
 interface Message {
@@ -12,7 +13,7 @@ interface Message {
   isUser: boolean;
 }
 
-const ChatWindow = ({ isOpen }: ChatWindowProps) => {
+const ChatWindow = ({ isOpen, url }: ChatWindowProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -37,7 +38,7 @@ const ChatWindow = ({ isOpen }: ChatWindowProps) => {
     };
 
     try {
-      const res = await fetch('https://automation.krishnajha.me/webhook/e4f1ea91-6edf-471d-987d-6ce132b992f8/chat', {
+      const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
