@@ -1,8 +1,8 @@
 {
   "name": "n8n-chat-widget",
   "type": "module",
-  "version": "1.0.15",
-  "description": "",
+  "version": "1.0.16",
+  "description": "A chat widget for n8n that allows users to interact with the n8n workflow engine.",
   "main": "dist/chat-widget.umd.js",
   "module": "dist/chat-widget.esm.js",
   "types": "dist/index.d.ts",
