@@ -4,12 +4,15 @@ A modern, customizable chat widget built with React, TypeScript, and Tailwind CS
 
 ## Features
 
-- 🎨 Modern and clean UI design
-- 📱 Fully responsive
+- 🎨 Modern and clean UI design with Radix UI components
+- 📱 Fully responsive design
 - 💬 Real-time chat functionality
 - 🔒 Type-safe with TypeScript
-- 🎭 Customizable appearance
+- 🎭 Customizable appearance with Tailwind CSS
 - 🚀 Easy to integrate
+- 🎯 Built with modern React patterns and hooks
+- 📦 Optimized bundle size with Rollup
+- 🔌 Configurable chat endpoint URL
 
 ## Installation
 
@@ -27,19 +30,21 @@ npm install n8n-chat-widget
 import ChatWidget from 'n8n-chat-widget';
 ```
 
-2. Add the widget to your application:
+2. Add the widget to your application with the required URL prop:
 
 ```tsx
 function App() {
   return (
     <div>
-      <ChatWidget />
+      <ChatWidget url="https://your-chat-endpoint.com/api/chat" />
     </div>
   );
 }
 ```
 
-### CDN Integration
+The `url` prop is required and should point to your chat API endpoint. This endpoint will be used for all chat communications.
+
+### CDN Integration (Upcoming)
 
 If you prefer to use the widget via CDN, add the following to your HTML:
 
@@ -47,23 +52,18 @@ If you prefer to use the widget via CDN, add the following to your HTML:
 <!-- Required dependencies -->
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.min.js"></script>
 
 <!-- Chat Widget -->
 <script src="https://unpkg.com/n8n-chat-widget/dist/chat-widget.umd.js"></script>
 
 <!-- Mount the widget -->
 <script>
-  ChatWidget.createChatWidget('chat-root');
+  ChatWidget.createChatWidget('chat-root', {
+    url: 'https://your-chat-endpoint.com/api/chat'
+  });
 </script>
 ```
-
-## Styling
-
-The widget uses Tailwind CSS for styling. You can customize the appearance by:
-
-1. Overriding the default Tailwind classes
-2. Using the provided utility classes
-3. Adding your own custom styles
 
 ## Dependencies
 
@@ -71,6 +71,13 @@ The widget has the following peer dependencies:
 - React (>=16.8.0)
 - React DOM (>=16.8.0)
 - Lucide React (>=0.462.0)
+
+Additional dependencies:
+- @radix-ui/react-slot
+- @radix-ui/react-toast
+- class-variance-authority
+- tailwind-merge
+- clsx
 
 ## Development
 
@@ -85,6 +92,21 @@ npm install
 3. Build the widget:
 ```bash
 npm run build
+```
+
+The build process uses Rollup to create both ESM and UMD bundles, along with TypeScript declarations.
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── lib/           # Utility functions and hooks
+├── Chat.tsx       # Main chat component
+├── ChatButton.tsx # Chat toggle button
+├── ChatWindow.tsx # Chat window component
+├── index.tsx      # Entry point
+└── index.css      # Global styles
 ```
 
 ## License
